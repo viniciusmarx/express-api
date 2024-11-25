@@ -1,6 +1,5 @@
 import express from "express";
 import multer from "multer";
-import cors from "cors";
 import { getAllPosts, createPost, uploadImage, updateNewPost } from "../controllers/posts-controller.js";
 
 const storage = multer.diskStorage({
@@ -21,7 +20,7 @@ const routes = (app) => {
 
 	app.post("/posts", createPost);
 
-	app.post("/upload", upload.single("imagem"), uploadImage);
+	app.post("/upload", upload.single("image"), uploadImage);
 
 	app.put("/upload/:id", updateNewPost);
 };
